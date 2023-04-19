@@ -1,11 +1,13 @@
 const express = require('express');
 const mysql = require('mysql2');
-
+const inquirer = require('inquirer');
 const PORT = process.env.port || 3001;
 const app = express();
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+
+app.use(express.static('public'));
 
 const db = mysql.createConnection(
     {
@@ -24,3 +26,14 @@ app.use((req,res) => {
 app.listen(PORT, () =>{
     console.log(`Server running on port ${PORT}`)
 });
+
+
+inquirer
+    .prompt([
+        {
+            type: 'list',
+            message: 'What would you like to do ?',
+            name: 'choices',
+            choices: ["Update Employee Role","View All Roles","Add Role","View All Departments","Quit","View All Employees"],
+        }
+    ]);
