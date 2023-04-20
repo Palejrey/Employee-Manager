@@ -15,7 +15,7 @@
 ## Contribution 
  > As of currently there are no contribution guidelines 
 ## License 
- The application is covered under the None . 
+ The application is not covered. 
 ## Tests 
  > No tests. 
 ## Questions 
